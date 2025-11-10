@@ -59,8 +59,9 @@ header nav ul {
 .new-post {
   margin-top: 20px;
   height: 120px;
-  width: 1100px;
+  width: 100%;
   position: relative;
+  /* order: 1; */
 }
 
 #new-post-text {
@@ -71,7 +72,7 @@ header nav ul {
 }
 
 .post {
-  width: 1100px;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -161,69 +162,9 @@ header nav ul {
   box-shadow: 1px 1px 2px #c5c5c5;
 }
 
-/* Responsiveness */
-@media (max-width: 1140px) {
-  .new-post, .post {
-    width: 900px;
-  }
-}
-
-@media (max-width: 1080px) {
-  .new-post, .post {
-    width: 850px;
-  }
-}
-
-@media (max-width: 920px) {
-  .new-post, .post {
-    width: 800px;
-  }
-}
-
-@media (max-width: 800px) {
-  .new-post, .post {
-    width: 760px;
-  }
-}
-
-@media (max-width: 780px) {
-  .new-post, .post {
-    width: 720px;
-  }
-}
-
-@media (max-width: 730px) {
-  .new-post, .post {
-    width: 580px;
-  }
-}
-
-@media (max-width: 520px) {
-  .new-post, .post {
-    width: 450px;
-  }
-}
-
-@media (max-width: 480px) {
-  .new-post, .post {
-    width: 360px;
-  }
-}
-
-@media (max-width: 320px) {
-  .new-post, .post {
-    width: 300px;
-  }
-}
-
-@media (max-width: 280px) {
-  .new-post, .post {
-    width: 250px;
-  }
-}
-
-@media (max-width: 250px) {
-  .new-post, .post {
-    width: 200px;
-  }
+#post-feed {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
 }
