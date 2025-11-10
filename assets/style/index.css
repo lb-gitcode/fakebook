@@ -40,6 +40,9 @@ header nav ul {
     text-decoration: none;
   }
   a:hover { color: black; }
+  li div {
+    cursor: pointer;
+  }
 }
 
 /* Main */
