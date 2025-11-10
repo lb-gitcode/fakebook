@@ -55,23 +55,46 @@ const userOne = new User(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com');
 
 function post() {
   let textValue = postText.value;
-  if(textValue === ''){
-    console.log('No text!');
-  } else {
+  let currentTime = new Date();
+  let timeString = currentTime.toLocaleString();
+  let textCheck = checkText(textValue);
+  if(textCheck === false){ // add img check here
+    console.log('No Content!');
+  } else if(textCheck === true) {
     postFeed.innerHTML += 
     `<div class="post">
         <div class="post-format">
           <div class="icon"></div>
           <div class="username">Insert Name</div>
-          <div class="post-time">Time</div>
+          <div class="post-time">${timeString}</div>
         </div>
         <div class="post-content">
-          <div class="post-text">${textValue}</div>
-          <div class="post-img">
-            <img src="./assets/media/favicon.png">
-          </div>
-        </div>
+          <div class="post-text">${textValue}</div>`
+    if(checkImg() === true) {
+      postFeed.innerHTML += 
+        `<div class="post-img">
+          <img src="${postFile}">
+        </div>`;
+        }
+    postFeed.innerHTML += 
+       `</div>
       </div>`;
+  } // else if img but no text
+}
+
+function checkText(text) {
+  if(text === '') {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function checkImg(img) {
+  if(img === null) {
+    return false;
+  } else {
+    return true;
   }
 }
 
