@@ -99,3 +99,5 @@ function checkImg(img) {
 }
 
 listen('click', postButton, post)
+
+// Pop-up

@@ -174,16 +174,46 @@ header nav ul {
 /* Pop-up */
 
 #pop-up-modal {
+  display: visible;
+  display: flex;
   background-color: white;
   border: 1px solid gray;
   box-shadow: 1px 1px 2px #c5c5c5;
-  height: 600px;
-  width: 800px;
+  height: 300px;
+  width: 500px;
   margin: auto;
   border-radius: 5px;
+  padding: 10px;
   z-index: 1;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#close-modal {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #c5c5c5;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  float: right;
+  text-align: center;
+  line-height: 25px;
+  margin-left: auto;
+}
+
+#close-modal:hover {
+  cursor: pointer;
+}
+
+.user-info-container {
+  padding: 10px;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
