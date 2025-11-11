@@ -26,7 +26,7 @@ class User {
   get userName() { return this.#userName }
   get email() { return this.#email }
   getInfo() {
-    return [ `${this.#id}`, `${this.#name}`, `${this.#userName}`, `${this.#email}`];
+    return [`${this.#id}`, `${this.#name}`, `${this.#userName}`, `${this.#email}`];
   }
 }
 

@@ -170,3 +170,20 @@ header nav ul {
   border-radius: 5px;
   box-shadow: 1px 1px 2px #c5c5c5;
 }
+
+/* Pop-up */
+
+#pop-up-modal {
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 2px #c5c5c5;
+  height: 600px;
+  width: 800px;
+  margin: auto;
+  border-radius: 5px;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
