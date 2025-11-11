@@ -44,13 +44,15 @@ class Subscriber {
   get canMonetize() { return this.#canMonetize }
 }
 
+
+// POSTING
+
 // get elements
 const postButton = getElement('post-button');
 const postText = getElement('new-post-text');
 const postFile = getElement('new-file');
 const postFeed = getElement('post-feed');
 
-// app
 const userOne = new User(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com');
 
 function post() {
@@ -70,12 +72,13 @@ function post() {
         </div>
         <div class="post-content">
           <div class="post-text">${textValue}</div>`
-    if(checkImg() === true) {
+    /* if(checkImg(postFile) === true) {
       postFeed.innerHTML += 
         `<div class="post-img">
           <img src="${postFile}">
         </div>`;
         }
+        */
     postFeed.innerHTML += 
        `</div>
       </div>`;
@@ -100,4 +103,32 @@ function checkImg(img) {
 
 listen('click', postButton, post)
 
-// Pop-up
+// POP-UP
+
+// get elements
+const popUpIcon = getElement('pop-up-icon');
+const closeModal = getElement('close-modal');
+const popUpModal = getElement('pop-up-modal');
+
+const userId = getElement('user-id');
+const userName = getElement('user-name');
+const userUserName = getElement('user-username');
+const userEmail = getElement('user-email');
+
+// user info display
+
+userId.innerText = userOne.getInfo()[0];
+userName.innerText = userOne.getInfo()[1];
+userUserName.innerText = userOne.getInfo()[2];
+userEmail.innerText = userOne.getInfo()[3];
+
+// popping up
+listen('click', popUpIcon, function() {
+  popUpModal.style.visibility = 'visible';
+  popUpModal.style.opacity = '1';
+})
+
+listen('click', closeModal, function() {
+  popUpModal.style.visibility = 'hidden';
+  popUpModal.style.opacity = '0';
+})
