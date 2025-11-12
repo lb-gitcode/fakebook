@@ -50,7 +50,8 @@ class Subscriber {
 // get elements
 const postButton = getElement('post-button');
 const postText = getElement('new-post-text');
-const postFile = getElement('new-file');
+const postFile = getElement('real-file');
+const fileButton = getElement('new-file');
 const postFeed = getElement('post-feed');
 
 const userOne = new User(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com');
