@@ -50,40 +50,63 @@ class Subscriber {
 // get elements
 const postButton = getElement('post-button');
 const postText = getElement('new-post-text');
-const postFile = getElement('real-file');
+const realFileButton = getElement('real-file');
 const fileButton = getElement('new-file');
+const fileText = getElement('file-text');
 const postFeed = getElement('post-feed');
 
 const userOne = new User(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com');
+
+listen('click', fileButton, function() {
+  realFileButton.click();
+});
+
+listen('change', realFileButton, function(){
+  if (realFileButton.value) {
+    fileText.innerText = realFileButton.value;
+    console.log(realFileButton.value);
+  } else {
+    fileText.innerText = 'File upload unsucccessful.';
+  }
+});
 
 function post() {
   let textValue = postText.value;
   let currentTime = new Date();
   let timeString = currentTime.toLocaleString();
-  let textCheck = checkText(textValue);
-  if(textCheck === false){ // add img check here
-    console.log('No Content!');
-  } else if(textCheck === true) {
+  if(checkText(textValue) === false && checkImg(realFileButton) === false){
+    alert('No content!');
+  } else if (checkImg(realFileButton) === true) {
     postFeed.innerHTML += 
     `<div class="post">
-        <div class="post-format">
-          <div class="icon"></div>
-          <div class="username">Insert Name</div>
-          <div class="post-time">${timeString}</div>
-        </div>
-        <div class="post-content">
-          <div class="post-text">${textValue}</div>`
-    /* if(checkImg(postFile) === true) {
+            <div class="post-format">
+              <div class="icon"></div>
+              <div class="username">${userOne.getInfo()[1]}</div>
+              <div class="post-time">${timeString}</div>
+            </div>
+            <div class="post-content">
+              <div class="post-text">${textValue}</div>
+              <div class="post-img">
+                <img src="${URL.createObjectURL(realFileButton.files[0])}">
+              </div>
+            </div>
+          </div>`;
+    realFileButton.value = '';
+    fileText.innerText = 'No file selected.';
+    } else {
       postFeed.innerHTML += 
-        `<div class="post-img">
-          <img src="${postFile}">
-        </div>`;
-        }
-        */
-    postFeed.innerHTML += 
-       `</div>
-      </div>`;
-  } // else if img but no text
+    `<div class="post">
+      <div class="post-format">
+        <div class="icon"></div>
+        <div class="username">${userOne.getInfo()[1]}</div>
+        <div class="post-time">${timeString}</div>
+      </div>
+      <div class="post-content">
+        <div class="post-text">${textValue}</div>
+      </div>
+    </div>`;
+  }
+  postText.value = '';
 }
 
 function checkText(text) {
@@ -95,14 +118,14 @@ function checkText(text) {
 }
 
 function checkImg(img) {
-  if(img === null) {
-    return false;
-  } else {
+  if(img.value) {
     return true;
+  } else {
+    return false;
   }
 }
 
-listen('click', postButton, post)
+listen('click', postButton, post);
 
 // POP-UP
 
@@ -124,12 +147,22 @@ userUserName.innerText = userOne.getInfo()[2];
 userEmail.innerText = userOne.getInfo()[3];
 
 // popping up
+let popUp = false;
+
 listen('click', popUpIcon, function() {
-  popUpModal.style.visibility = 'visible';
-  popUpModal.style.opacity = '1';
-})
+  if (popUp === false) {
+    popUpModal.style.visibility = 'visible';
+    popUpModal.style.opacity = '1';
+    popUp = true;
+  } else if (popUp === true) {
+    popUpModal.style.visibility = 'hidden';
+    popUpModal.style.opacity = '0';
+    popUp = false;
+  }
+});
 
 listen('click', closeModal, function() {
   popUpModal.style.visibility = 'hidden';
   popUpModal.style.opacity = '0';
-})
+  popUp = false;
+});

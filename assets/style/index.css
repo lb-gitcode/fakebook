@@ -65,9 +65,9 @@ header nav ul {
 }
 
 .new-post {
-  padding: 5px;
+  padding: 15px 5px 5px 5px;
   margin-top: 20px;
-  height: 120px;
+  height: 130px;
   width: 100%;
   position: relative;
 }
@@ -89,7 +89,9 @@ header nav ul {
   display: flex;
 }
 
-#real-file { display: none; }
+#real-file { 
+  display: none;
+ }
 
 #new-file {
   padding: 5px;
@@ -172,10 +174,8 @@ header nav ul {
 
 .post-img {
   align-self: start;
-  max-width: 800px;
-  padding: 2px;
-  border: 1px solid gray;
-  border-radius: 5px;
+  max-width: 100%;
+  margin: 2px;
   box-shadow: 1px 1px 2px #c5c5c5;
 }
 
@@ -199,6 +199,8 @@ header nav ul {
 }
 
 #close-modal {
+  user-select: none;
+  font-weight: 750;
   border: 1px solid gray;
   border-radius: 5px;
   background-color: #c5c5c5;
@@ -211,7 +213,11 @@ header nav ul {
   margin-left: auto;
 }
 
-#close-modal:hover { cursor: pointer; }
+#close-modal:hover { 
+  cursor: pointer; 
+  background-color: gray;
+  border-color: black;
+}
 
 .user-info-container {
   padding: 10px;
