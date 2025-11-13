@@ -159,8 +159,9 @@ userId.innerText = userOne.getInfo()[0];
 userName.innerText = userOne.getInfo()[1];
 userUserName.innerText = userOne.getInfo()[2];
 userEmail.innerText = userOne.getInfo()[3];
-userGroups.innerText = userOne.getInfo()[4].join(', ');
-userPages.innerText = userOne.getInfo()[5].join(', ');
+userPages.innerText = userOne.getInfo()[4].join(', ');
+userGroups.innerText = userOne.getInfo()[5].join(', ');
+
 
 if (userOne.getInfo()[6] === true) {
   userIsMonetized.innerText = 'Active';
