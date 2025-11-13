@@ -43,6 +43,15 @@ class Subscriber extends User {
   get pages() { return this.#pages }
   get groups() { return this.#groups }
   get canMonetize() { return this.#canMonetize }
+  getInfo() {
+    let info = User.prototype.getInfo;
+    let printInfo = info.call(this);
+    printInfo.push(this.#pages);
+    printInfo.push(this.#groups);
+    printInfo.push(this.#canMonetize);
+    console.log(printInfo);
+    return printInfo;
+  }
 }
 
 
@@ -57,6 +66,7 @@ const fileText = getElement('file-text');
 const postFeed = getElement('post-feed');
 
 const userOne = new Subscriber(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com', ['My page', 'Another page', 'Friend\'s page'], ['Cat lovers', 'Cat haters', 'Cat neutrals'], false);
+userOne.getInfo();
 
 listen('click', fileButton, function() {
   realFileButton.click();
@@ -139,6 +149,9 @@ const userId = getElement('user-id');
 const userName = getElement('user-name');
 const userUserName = getElement('user-username');
 const userEmail = getElement('user-email');
+const userGroups = getElement('user-groups');
+const userPages = getElement('user-pages');
+const userIsMonetized = getElement('user-is-monetized');
 
 // user info display
 
@@ -146,6 +159,16 @@ userId.innerText = userOne.getInfo()[0];
 userName.innerText = userOne.getInfo()[1];
 userUserName.innerText = userOne.getInfo()[2];
 userEmail.innerText = userOne.getInfo()[3];
+userGroups.innerText = userOne.getInfo()[4].join(', ');
+userPages.innerText = userOne.getInfo()[5].join(', ');
+
+if (userOne.getInfo()[6] === true) {
+  userIsMonetized.innerText = 'Active';
+} else if (userOne.getInfo()[6] === false) {
+  userIsMonetized.innerText = 'Inactive';
+} else {
+  userIsMonetized.innerText = 'Null';
+}
 
 // popping up
 let popUp = false;
