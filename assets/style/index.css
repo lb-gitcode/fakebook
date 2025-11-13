@@ -15,6 +15,7 @@ header, header nav ul {
 }
 
 header {
+  border-bottom: 1px solid navy;
   background-color: blue;
   color: white;
   height: 75px;
@@ -40,9 +41,19 @@ header nav ul {
     text-decoration: none;
   }
   a:hover { color: black; }
+  li div {
+    cursor: pointer;
+  }
 }
 
 /* Main */
+#post-feed {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .new-post, .post { 
   display: flex;
   flex-wrap: wrap;
@@ -54,9 +65,10 @@ header nav ul {
 }
 
 .new-post {
+  padding: 15px 5px 5px 5px;
   margin-top: 20px;
-  height: 120px;
-  width: 1100px;
+  height: 130px;
+  width: 100%;
   position: relative;
 }
 
@@ -68,7 +80,7 @@ header nav ul {
 }
 
 .post {
-  width: 1100px;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -77,14 +89,20 @@ header nav ul {
   display: flex;
 }
 
-#new-file i {
-  margin-top: 50px;
+#real-file { 
+  display: none;
+ }
+
+#new-file {
+  padding: 5px;
+  width: 35px;
 }
 
-#new-file::-webkit-file-upload-button {
-  visibility: hidden;
-  margin: 0 -50px;
-}
+#new-file:hover { color: blue; }
+
+#new-file:active { color: navy; }
+
+#file-text { margin-top: 4px; }
 
 #post-button {
   position: absolute;
@@ -95,14 +113,20 @@ header nav ul {
   border-radius: 10px;
   width: 60px;
   text-align: center;
+  border: 1px solid navy;
   background-color: blue;
   color: white;
 }
 
 #post-button:hover {
-  background-color: #0000b8;
-  color: #000;
+  background-color: rgb(0, 0, 167);
+  color: black;
   scale: 1.05;
+}
+
+#post-button:active {
+  background-color: black;
+  color: white;
 }
 
 /* Post Elements */
@@ -113,7 +137,10 @@ header nav ul {
 }
 
 .icon {
-  background-color: gray;
+  background-image: url(/fakebook/assets/media/favicon.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   max-height: 50px;
   min-height: 50px;
   max-width: 50px;
@@ -122,9 +149,7 @@ header nav ul {
   margin: 10px 20px 10px 10px;
 }
 
-.username, .post-time {
-  margin-top: 22px;
-}
+.username, .post-time { margin-top: 22px; }
 
 .username {
   margin-right: 1000px;
@@ -141,86 +166,66 @@ header nav ul {
 
 .post-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 10px 10px 10px 30px;
 }
 
-.post-text + .post-img {
-  margin-top: 20px;
-}
+.post-text + .post-img { margin-top: 20px; }
 
 .post-img {
-  margin: auto;
-  max-width: 800px;
-  padding: 2px;
-  border: 1px solid gray;
-  border-radius: 5px;
+  align-self: start;
+  max-width: 100%;
+  margin: 2px;
+  border: 1px solid #c5c5c5;
   box-shadow: 1px 1px 2px #c5c5c5;
 }
 
-/* Responsiveness */
-@media (max-width: 1140px) {
-  .new-post, .post {
-    width: 900px;
-  }
+/* Pop-up */
+#pop-up-modal {
+  visibility: hidden;
+  opacity: 0;
+  background-color: white;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 2px #c5c5c5;
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@media (max-width: 1080px) {
-  .new-post, .post {
-    width: 850px;
-  }
+#close-modal {
+  user-select: none;
+  font-weight: 750;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #c5c5c5;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  float: right;
+  text-align: center;
+  line-height: 25px;
+  margin-left: auto;
 }
 
-@media (max-width: 920px) {
-  .new-post, .post {
-    width: 800px;
-  }
+#close-modal:hover { 
+  cursor: pointer; 
+  background-color: gray;
+  border-color: black;
 }
 
-@media (max-width: 800px) {
-  .new-post, .post {
-    width: 760px;
-  }
-}
-
-@media (max-width: 780px) {
-  .new-post, .post {
-    width: 720px;
-  }
-}
-
-@media (max-width: 730px) {
-  .new-post, .post {
-    width: 580px;
-  }
-}
-
-@media (max-width: 520px) {
-  .new-post, .post {
-    width: 450px;
-  }
-}
-
-@media (max-width: 480px) {
-  .new-post, .post {
-    width: 360px;
-  }
-}
-
-@media (max-width: 320px) {
-  .new-post, .post {
-    width: 300px;
-  }
-}
-
-@media (max-width: 280px) {
-  .new-post, .post {
-    width: 250px;
-  }
-}
-
-@media (max-width: 250px) {
-  .new-post, .post {
-    width: 200px;
-  }
+.user-info-container {
+  padding: 10px;
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
