@@ -30,11 +30,12 @@ class User {
   }
 }
 
-class Subscriber {
+class Subscriber extends User {
   #pages;
   #groups;
   #canMonetize;
-  constructor(pages, groups, canMonetize) {
+  constructor(id, name, userName, email, pages, groups, canMonetize) {
+    super(id, name, userName, email);
     this.#pages = pages;
     this.#groups = groups;
     this.#canMonetize = canMonetize;
@@ -55,7 +56,7 @@ const fileButton = getElement('new-file');
 const fileText = getElement('file-text');
 const postFeed = getElement('post-feed');
 
-const userOne = new User(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com');
+const userOne = new Subscriber(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com', [], [], false);
 
 listen('click', fileButton, function() {
   realFileButton.click();
