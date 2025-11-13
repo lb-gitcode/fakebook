@@ -1,13 +1,6 @@
 'use strict';
 // Uncaught SyntaxError: Cannot use import statement outside a module
-// get HTML element by ID
-function getElement(selector, scope = document) { return scope.getElementById(selector); }
-// select HTML element 
-function select(selector, scope = document) { return scope.querySelector(selector); }
-// select a list of HTML elements as an array
-function selectAll(selector, scope = document) { return [...scope.querySelectorAll(selector)]; }
-// adding event listener
-function listen(event, selector, callback) { return selector.addEventListener(event, callback); }
+import { listen, getElement } from "./utils.js"
 
 // classes
 class User {
