@@ -56,7 +56,7 @@ const fileButton = getElement('new-file');
 const fileText = getElement('file-text');
 const postFeed = getElement('post-feed');
 
-const userOne = new Subscriber(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com', [], [], false);
+const userOne = new Subscriber(1234, 'Maxwell', 'MaxAttax', 'max@meowmail.com', ['My page', 'Another page', 'Friend\'s page'], ['Cat lovers', 'Cat haters', 'Cat neutrals'], false);
 
 listen('click', fileButton, function() {
   realFileButton.click();
