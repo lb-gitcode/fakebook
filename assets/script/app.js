@@ -49,7 +49,6 @@ class Subscriber extends User {
     printInfo.push(this.#pages);
     printInfo.push(this.#groups);
     printInfo.push(this.#canMonetize);
-    console.log(printInfo);
     return printInfo;
   }
 }
@@ -75,7 +74,6 @@ listen('click', fileButton, function() {
 listen('change', realFileButton, function(){
   if (realFileButton.value) {
     fileText.innerText = realFileButton.value;
-    console.log(realFileButton.value);
   } else {
     fileText.innerText = 'File upload unsucccessful.';
   }
