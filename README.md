@@ -1,5 +1,7 @@
-FakeBook is a spoof of FaceBook, with post-creating functionalities.
+FakeBook is a spoof of FaceBook, with post-creating functionalities. Post text and files as "Maxwell".
 
 Languages used: JavaScript, HTML, and CSS.
 
 [Click here to see!](https://lb-gitcode.github.io/fakebook/)
+
+![FakeBook's main page with a post queued up.)[https://imgur.com/a/RPEBUPi]
