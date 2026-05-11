@@ -4,4 +4,4 @@ Languages used: JavaScript, HTML, and CSS.
 
 [Click here to see!](https://lb-gitcode.github.io/fakebook/)
 
-![FakeBook's main page with a post queued up.](https://imgur.com/a/RPEBUPi)
+![FakeBook's main page with a post queued up.](https://i.imgur.com/9t3fMba.png)
